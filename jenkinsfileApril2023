@@ -14,7 +14,7 @@ stage('2MavenBuild'){
    sh "${mavenHome}/bin/mvn deploy"
    }
   stage('5deploy2UAT'){
-   deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://54.146.142.190:8080/')], contextPath: null, war: 'target/*war'  
+   deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://3.84.18.37:8080/')], contextPath: null, war: 'target/*war'  
   }
    stage('6Manualapproval'){
     sh "echo 'ready for review' "
@@ -23,7 +23,7 @@ stage('2MavenBuild'){
   }
 }
 stage('7deploy2Prod'){
-   deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://54.146.142.190:8080/')], contextPath: null, war: 'target/*war' 
+   deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://3.84.18.37:8080/')], contextPath: null, war: 'target/*war' 
 }
 stage('8emailNotify'){
     emailext body: '''Good day Team
