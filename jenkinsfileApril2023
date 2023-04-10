@@ -1,6 +1,6 @@
 node{
  stage('1.CodeClone'){
-    sh  "git clone https://github.com/LandmakTechnology/maven-web-application"
+    git credentialsId: 'b512688f-176e-4efc-9561-0afa9816b8f1', url: 'https://github.com/skhume/mvn-web-app'
    }
 stage('2MavenBuild'){
     sh "${mavenHome}/bin/mvn package"
